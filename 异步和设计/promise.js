@@ -10,28 +10,28 @@ function MyPromise(fn){
     this.resolvedCallbacks = [];
     this.rejectedCallbacks = [];
 
-    function resolve(value){
-        if(value instanceof MyPromise){
-            return value.then(resolve, reject);
+    function resolve(newValue){
+        if(newValue instanceof MyPromise){
+            return newValue.then(resolve, reject);
         }
-        //传入的value不是promise对象，直接改变状态为resolved
-        setTimeout(() => {
+        setTimeout(()=>{
             if(self.state === PENDING){
-                self.state = RESOLVED;
-                self.value = value;
+                this.state = RESOLVED;
+                this.value = newValue;
                 self.resolvedCallbacks.forEach(fn => fn(self.value));
             }
         },0)
     }
-
-    function reject(reason){
-        setTimeout(() => {
+    function reject(newValue){
+        if(newValue instanceof MyPromise){
+            return newValue.then(resolve, reject);
+        }
+        setTimeout(()=>{
             if(self.state === PENDING){
-                self.state = REJECTED;
-                self.value = reason;
+                this.state = REJECTED;
+                this.value = newValue;
                 self.rejectedCallbacks.forEach(fn => fn(self.value));
             }
-            
         },0)
     }
     try{
@@ -119,7 +119,7 @@ MyPromise.prototype.allSettled = function(promises){
                     count++;
                     result[index] = {status: REJECTED, reason};
                     if(count === promises.length){
-                        resolve(result);
+                        reject(result);
                     }
                 });
             })

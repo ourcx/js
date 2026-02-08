@@ -61,9 +61,24 @@ const step2 = () => {
 
 //使用 async 实现
 const taskRunner =  async () => {
-    await task(3000, 'red')
-    await task(2000, 'green')
-    await task(2100, 'yellow')
+    await task3(3000, 'red')
+    await task3(2000, 'green')
+    await task3(2100, 'yellow')
     taskRunner()
 }
 taskRunner()
+
+const task3 = (timer, light) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (light === 'red') {
+                red()
+            }else if (light === 'green') {
+                green()
+            }else{
+                yellow()
+            }
+            resolve()
+        },timer)
+    })
+}
