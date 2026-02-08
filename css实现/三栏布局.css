@@ -1,0 +1,46 @@
+/* float 的实现意义不大，现在基本不会用这个了 */
+/* flex 的实现 */
+.container {
+    display: flex;
+}
+.left{
+    width: 200px;
+}
+.center{
+    flex: 1;
+}
+.right{
+    width: 200px;
+}
+
+
+/* grid 的实现 */
+
+.container {
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+}
+
+
+/* float 的实现 */
+.container {
+    padding: 0 200px;
+}
+.center{
+    float: left;
+    width: 100%;
+}
+.left{
+    float: left;
+    width: 200px;
+    margin-right: -100%;
+    position: relative;
+    left: -200px;
+}
+.right{
+    float: right;
+    width: 200px;
+    margin-left: -100%;
+    position: relative;
+    right: -200px;
+}

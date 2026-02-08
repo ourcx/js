@@ -1,0 +1,40 @@
+/* "CSS 画三角形利用的是 border 的特性。当元素宽高为 0 时，四个边框会在交界处形成斜线，每个边框都是一个三角形。
+画向上的三角形：宽高设为 0，只给 border-bottom 设颜色，左右 border 设透明。底边是三角形的底，左右透明边撑开宽度。
+原理：border 不是矩形，而是梯形。当 content 为 0 时，梯形变成三角形。" */
+
+
+
+/* 向上的三角形 */
+.triangle-up {
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid red;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+/* 向下的三角形 */
+.triangle-down {
+    width: 0;
+    height: 0;
+    border-top: 5px solid red;  
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+}
+
+/* 向左的三角形 */
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-right: 5px solid red;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+}
+
+/* 直角三角形 */
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-left: 5px solid red;
+    border-top: 5px solid transparent;
+}

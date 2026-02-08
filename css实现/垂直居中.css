@@ -1,0 +1,54 @@
+/* 1. flex（最常用） */
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 2. grid */
+.parent {
+  display: grid;
+  place-items: center;
+}
+
+/* 3. absolute + transform */
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 4. absolute + margin:auto */
+.child {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  width: 100px; height: 100px; /* 必须有宽高 */
+}
+
+/* 5. line-height（单行文字） */
+.parent {
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+}
+/* 6. table-cell */
+.parent {
+  display: table-cell;
+  vertical-align: middle;  /* 垂直居中 */
+  text-align: center;      /* 水平居中 */
+  width: 300px;
+  height: 300px;
+}
+
+/* 7. absolute + 负margin（需要知道子元素宽高） */
+.child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;   /* 高度的一半 */
+  margin-left: -50px;  /* 宽度的一半 */
+}

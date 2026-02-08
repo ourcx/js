@@ -3,6 +3,7 @@ Function.prototype.myCall =function call(context=window) {
         throw new TypeError('Error')
     }
     let obj = context;
+    obj.fn = this;
     const args = [...arguments].slice(1);
     let res = obj.fn(...args);
     delete obj.fn;

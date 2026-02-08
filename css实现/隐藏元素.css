@@ -1,0 +1,14 @@
+/* "隐藏元素常用三种方式：
+display: none：完全隐藏，不占空间，不响应事件，会触发重排。用于完全移除元素，比如 Tab 切换。
+visibility: hidden：隐藏但占空间，不响应事件，只触发重绘。用于保留占位，比如表格单元格隐藏。
+opacity: 0：透明但占空间，还能响应事件（能点击），只触发合成。用于淡入淡出动画。
+还有 position: absolute; left: -9999px 移出视口，不占空间，屏幕阅读器还能读到，用于无障碍访问。" */
+
+
+.hidden {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+}
