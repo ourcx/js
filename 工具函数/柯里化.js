@@ -39,3 +39,8 @@ function currying(fn){
 }
 let addCurry = currying(add)
 console.log(addCurry(1)(2)(3)(4, 5)())  //15
+
+// es6 实现
+function curry(fn, ...args) {
+  return fn.length <= args.length ? fn(...args) : curry.bind(null, fn, ...args);
+}

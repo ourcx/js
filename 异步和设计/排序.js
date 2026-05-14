@@ -115,7 +115,7 @@ function quickSort(arr,begin,end) {
             j--;
         }
         while(arr[i] <= temp && j > i) {
-                i++;
+            i++;
         }
         if (i < j) {
             [arr[i], arr[j]] = [arr[j], arr[i]];
